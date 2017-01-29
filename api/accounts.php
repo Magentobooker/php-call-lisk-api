@@ -45,7 +45,7 @@ class accounts {
 
 		if ($data['success'] == TRUE) {
 
-			return $data['balance'];
+			return $data;
 
 		} else {
 
@@ -134,7 +134,7 @@ class accounts {
 
 	public function getDelegates($address, $protocol, $host, $port) {
 
-		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/delegates?address' . $address);
+		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/delegates?address=' . $address);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
