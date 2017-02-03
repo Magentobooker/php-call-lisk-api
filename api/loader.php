@@ -6,11 +6,11 @@ class loader {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/loader/status');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -29,11 +29,11 @@ class loader {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/loader/status/sync');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -52,11 +52,11 @@ class loader {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/loader/status/ping');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 

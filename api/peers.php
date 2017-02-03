@@ -33,11 +33,11 @@ class peers {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/peers?' . $query_string);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -66,11 +66,11 @@ class peers {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/peers/get?' . $query_string);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -89,11 +89,11 @@ class peers {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/peers/version');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 

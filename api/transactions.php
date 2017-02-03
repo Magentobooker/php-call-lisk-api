@@ -8,31 +8,39 @@ class transactions {
 		if (!empty($blockId)) {
 			$query_string .= 'blockId=' . $blockId;
 		}
+
 		if (!empty($senderId)) {
 			$query_string .= '&senderId=' . $senderId;
 		}
+
 		if (!empty($recipientId)) {
 			$query_string .= '&recipientId=' . $recipientId;
 		}
+
 		if (!empty($limit)) {
 			$query_string .= '&limit=' . $limit;
 		}
+
 		if (!empty($offset)) {
 			$query_string .= '&offset=' . $offset;
+		}
+
+		if (!empty($orderBy)) {
+			$query_string .= '&orderBy=' . $orderBy;
 		}
 
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions?' . $query_string);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
-			return $data;
+			return $data['transactions'];
 
 		} else {
 
@@ -57,13 +65,13 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($request)));
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $request);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -81,11 +89,11 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions/get?id=' . $transactionId);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -104,11 +112,11 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions/unconfirmed/get?id=' . $transactionId);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -127,11 +135,11 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions/unconfirmed');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -150,11 +158,11 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions/queued');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -173,11 +181,11 @@ class transactions {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/transactions/queued/get?id=' . $transactionId);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 

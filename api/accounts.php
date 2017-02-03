@@ -1,7 +1,7 @@
 <?php
 class accounts {
 
-	public function openAccount($secret, $protocol, $host, $port) {
+	public function openAccount($protocol, $host, $port, $secret) {
 
 		$request_array	= array(
 						'secret'		=> $secret
@@ -12,13 +12,13 @@ class accounts {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/open');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($request)));
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $request);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -32,16 +32,16 @@ class accounts {
 
 	}
 
-	public function getBalance($address, $protocol, $host, $port) {
+	public function getBalance($protocol, $host, $port, $address) {
 
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/getBalance?address=' . $address);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -55,16 +55,16 @@ class accounts {
 
 	}
 
-	public function getPublicKey($address, $protocol, $host, $port) {
+	public function getPublicKey($protocol, $host, $port, $address) {
 
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/getPublicKey?address=' . $address);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -78,7 +78,7 @@ class accounts {
 
 	}
 
-	public function generatePublicKey($secret, $protocol, $host, $port) {
+	public function generatePublicKey($protocol, $host, $port, $secret) {
 
 		$request_array	= array(
 						'secret'		=> $secret
@@ -89,13 +89,13 @@ class accounts {
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/generatePublicKey');
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Content-Length: ' . strlen($request)));
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $request);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -109,16 +109,16 @@ class accounts {
 
 	}
 
-	public function getAccount($address, $protocol, $host, $port) {
+	public function getAccount($protocol, $host, $port, $address) {
 
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts?address=' . $address);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
@@ -132,16 +132,16 @@ class accounts {
 
 	}
 
-	public function getDelegates($address, $protocol, $host, $port) {
+	public function getDelegates($protocol, $host, $port, $address) {
 
 		$curl = curl_init($protocol . '://' . $host . ':' . $port . '/api/accounts/delegates?address=' . $address);
 
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
 
 		$response	= curl_exec($curl);
 
-		$data		= json_decode($response, true);
+		$data		= json_decode($response, TRUE);
 
 		if ($data['success'] == TRUE) {
 
