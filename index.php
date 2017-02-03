@@ -17,7 +17,7 @@ function autoload($class) {
 	$file = DIR_SYSTEM . 'api/' . str_replace('\\', DIRECTORY_SEPARATOR, strtolower($class)) . '.php';
 	
 	if (is_file($file)) {
-		include_once($file);
+		include_once $file;
 		return true;
 	}
 	
@@ -38,9 +38,9 @@ echo '<br>----------------------<br>';
 
 $loader = new loader();
 
-$loading_status = $loader->getLoadingStatus(PROTOCOL, HOST, PORT);
+$loadingStatus = $loader->getLoadingStatus(PROTOCOL, HOST, PORT);
 
-print_r($loading_status);
+print_r($loadingStatus);
 
 echo '<br>----------------------<br>';
 
